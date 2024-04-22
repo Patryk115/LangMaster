@@ -1,5 +1,25 @@
-<!-- rounded_background.xml -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="#75F726" /> <!-- Domyślny kolor tła -->
-    <corners android:radius="70dp" /> <!-- Domyślne zaokrąglenie rogów -->
-</shape>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- Shadow layer -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#A9A9A9"/> <!-- Kolor cienia -->
+            <corners android:radius="70dp"/>
+        </shape>
+    </item>
+    <!-- Główny przycisk -->
+    <item android:left="5dp" android:right="5dp" android:top="5dp" android:bottom="5dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#7CCC56"/> <!-- Kolor tła przycisku -->
+            <corners android:radius="70dp"/>
+        </shape>
+    </item>
+
+<!-- Background layer -->
+<item android:bottom="4dp" android:left="0dp" android:right="3dp" android:top="1dp">
+    <shape>
+        <solid android:color="#75F726" />
+        <corners android:radius="70dp" />
+    </shape>
+</item>
+</layer-list>

@@ -1,0 +1,5 @@
+<!-- rounded_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#7CCC56" /> <!-- Domyślny kolor tła -->
+    <corners android:radius="18dp" /> <!-- Domyślne zaokrąglenie rogów -->
+</shape>
