@@ -17,6 +17,9 @@
             android:exported="false" />
         <activity
             android:name=".VocabularyLearningActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SentencesActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
