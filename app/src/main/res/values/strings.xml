@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">LangMaster</string>
     <string name="title_activity_registration">RegistrationActivity</string>
+    <string-array name="spinner_items">
+        <item>Jedzenie</item>
+        <item>Ubrania</item>
+        <item>Zwierzęta</item>
+        <!-- Dodaj więcej elementów tutaj -->
+    </string-array>
 </resources>
