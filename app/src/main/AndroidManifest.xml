@@ -19,7 +19,7 @@
             android:name=".VocabularyLearningActivity"
             android:exported="false" />
         <activity
-            android:name=".SentencesActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,7 +33,7 @@
             android:label="@string/title_activity_registration"
             android:theme="@style/Theme.LangMaster" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".SentencesActivity"
             android:exported="false" />
     </application>
 
