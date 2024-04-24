@@ -11,4 +11,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
     }
+
+    public interface LoginView {
+        void showProgress();
+        void hideProgress();
+        void setLoginError();
+        void navigateToHome();
+    }
 }
