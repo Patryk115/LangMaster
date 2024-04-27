@@ -10,11 +10,14 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.example.langmaster.presenter.LoginPresenter;
 import com.example.langmaster.model.UserModelImpl;
 
+
+
 public class LoginActivity extends AppCompatActivity implements LoginPresenter.LoginView {
 
     private LoginPresenter presenter;
     private TextInputEditText usernameEditText;
     private TextInputEditText passwordEditText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,27 +36,26 @@ public class LoginActivity extends AppCompatActivity implements LoginPresenter.L
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.validateCredentials(
-                        usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString()
-                );
+                String username = usernameEditText.getText().toString();
+                String password = passwordEditText.getText().toString();
+                if (!username.isEmpty() && !password.isEmpty()) {
+                    presenter.validateCredentials(username, password);
+                } else {
+                    Toast.makeText(LoginActivity.this, "Nie podałeś hasła lub loginu", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
 
-    @Override
-    public void showProgress() {
-
-    }
 
     @Override
-    public void hideProgress() {
-
-    }
-
-    @Override
-    public void setLoginError(String errorMessage) {
-        Toast.makeText(LoginActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+    public void setLoginError(final String errorMessage) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(LoginActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -65,7 +67,6 @@ public class LoginActivity extends AppCompatActivity implements LoginPresenter.L
 
     @Override
     protected void onDestroy() {
-        presenter.onDestroy();
         super.onDestroy();
     }
 }

@@ -4,8 +4,6 @@ import com.example.langmaster.model.UserModel;
 
 public class LoginPresenter {
     public interface LoginView {
-        void showProgress();
-        void hideProgress();
         void setLoginError(String errorMessage);
         void navigateToHome();
     }
@@ -20,14 +18,12 @@ public class LoginPresenter {
 
     public void validateCredentials(String username, String password) {
         if (loginView != null) {
-            loginView.showProgress();
         }
 
         userModel.login(username, password, new UserModel.OnLoginListener() {
             @Override
             public void onLoginSuccess() {
                 if (loginView != null) {
-                    loginView.hideProgress();
                     loginView.navigateToHome();
                 }
             }
@@ -35,7 +31,6 @@ public class LoginPresenter {
             @Override
             public void onLoginFailure(String message) {
                 if (loginView != null) {
-                    loginView.hideProgress();
                     loginView.setLoginError(message);
                 }
             }
