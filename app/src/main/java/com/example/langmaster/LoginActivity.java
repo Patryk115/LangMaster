@@ -2,6 +2,7 @@ package com.example.langmaster;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,6 +31,9 @@ public class LoginActivity extends AppCompatActivity implements LoginPresenter.L
         usernameEditText = findViewById(R.id.textInputEditText);
         passwordEditText = findViewById(R.id.editTextTextPassword);
         TextView registerLink = findViewById(R.id.textView3);
+
+        EditText editTextPassword = (EditText) findViewById(R.id.editTextTextPassword);
+        editTextPassword.setTransformationMethod(new PasswordTransformationMethod());
 
         presenter = new LoginPresenter(this, new UserModelImpl());
 
