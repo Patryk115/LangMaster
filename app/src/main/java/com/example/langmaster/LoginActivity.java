@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputEditText;
@@ -16,7 +18,7 @@ public class LoginActivity extends AppCompatActivity implements LoginPresenter.L
 
     private LoginPresenter presenter;
     private TextInputEditText usernameEditText;
-    private TextInputEditText passwordEditText;
+    private EditText passwordEditText;
 
 
     @Override
@@ -26,8 +28,8 @@ public class LoginActivity extends AppCompatActivity implements LoginPresenter.L
 
 
         usernameEditText = findViewById(R.id.textInputEditText);
-        passwordEditText = findViewById(R.id.textInputEditText2);
-
+        passwordEditText = findViewById(R.id.editTextTextPassword);
+        TextView registerLink = findViewById(R.id.textView3);
 
         presenter = new LoginPresenter(this, new UserModelImpl());
 
@@ -43,6 +45,14 @@ public class LoginActivity extends AppCompatActivity implements LoginPresenter.L
                 } else {
                     Toast.makeText(LoginActivity.this, "Nie podałeś hasła lub loginu", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        registerLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
+                startActivity(intent);
             }
         });
     }
