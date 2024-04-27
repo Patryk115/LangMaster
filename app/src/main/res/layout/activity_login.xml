@@ -67,7 +67,7 @@
         android:layout_width="370dp"
         android:layout_height="60dp"
         android:ems="10"
-        android:inputType="textPassword"
+        android:inputType="textVisiblePassword"
         android:background="@drawable/rounded_background"
         android:fontFamily="@font/luckiestguy"
         android:hint="HASŁO:"
