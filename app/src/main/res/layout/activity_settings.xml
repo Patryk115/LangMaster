@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B9FA91"
+    tools:context=".SettingsActivity">
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="256dp"
+        android:layout_height="58dp"
+        android:fontFamily="@font/luckiestguy"
+        android:shadowColor="#56DB05"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="1.6"
+        android:text="USTAWIENIA"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.037" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="385dp"
+        android:layout_height="174dp"
+        android:background="@drawable/rounded_square"
+        android:paddingLeft="-60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.21">
+
+        <TableRow
+            android:layout_width="252dp"
+            android:layout_height="match_parent"
+            android:textAlignment="center">
+
+            <TextView
+                android:id="@+id/login"
+                android:layout_width="256dp"
+                android:layout_height="58dp"
+                android:fontFamily="@font/luckiestguy"
+                android:paddingTop="10dp"
+                android:shadowColor="#56DB05"
+                android:shadowDx="5"
+                android:shadowDy="5"
+                android:shadowRadius="1.6"
+                android:text="LOGIN:"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/loginVIew"
+                android:layout_width="186dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/luckiestguy"
+                android:gravity="center"
+                android:textAlignment="center" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="213dp"
+                android:layout_height="58dp"
+                android:fontFamily="@font/luckiestguy"
+                android:paddingTop="10dp"
+                android:shadowColor="#56DB05"
+                android:shadowDx="5"
+                android:shadowDy="5"
+                android:shadowRadius="1.6"
+                android:text="IMIĘ:"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/imieView"
+                android:layout_width="186dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/luckiestguy"
+                android:gravity="center"
+                android:textAlignment="center" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="256dp"
+                android:layout_height="58dp"
+                android:fontFamily="@font/luckiestguy"
+                android:paddingTop="10dp"
+                android:shadowColor="#56DB05"
+                android:shadowDx="5"
+                android:shadowDy="5"
+                android:shadowRadius="1.6"
+                android:text="EMAIL:"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/emailView"
+                android:layout_width="186dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/luckiestguy"
+                android:gravity="center" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="300dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/rounded"
+        android:fontFamily="@font/luckiestguy"
+        android:text="WYLOGUJ SIĘ"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="300dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/rounded"
+        android:fontFamily="@font/luckiestguy"
+        android:text="STRONA GŁÓWNA"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.897" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="388dp"
+        android:layout_height="148dp"
+        android:background="@drawable/rounded_square"
+        android:orientation="vertical"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.565"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.559">
+
+        <TextView
+            android:id="@+id/motyw"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:fontFamily="@font/luckiestguy"
+            android:paddingLeft="15dp"
+            android:paddingTop="10dp"
+            android:shadowColor="#56DB05"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="1.6"
+            android:text="ZMIEŃ MOTYW:"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/button12"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/rounded_change_theme"
+            android:fontFamily="@font/luckiestguy"
+            android:text="JASNY"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/button15"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/rounded_change_theme"
+            android:fontFamily="@font/luckiestguy"
+            android:text="CIEMNY"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="384dp"
+        android:layout_height="111dp"
+        android:background="@drawable/rounded_square"
+        android:orientation="vertical"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.801">
+
+        <TextView
+            android:id="@+id/jezyk"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:fontFamily="@font/luckiestguy"
+            android:paddingLeft="15dp"
+            android:paddingTop="10dp"
+            android:shadowColor="#56DB05"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="1.6"
+            android:text="ZMEIŃ JĘZYK APLIKACJI:"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/button18"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/rounded"
+            android:fontFamily="@font/luckiestguy"
+            android:text="ANGIELSKI"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
