@@ -5,8 +5,14 @@
         <item>Jedzenie</item>
         <item>Ubrania</item>
         <item>Zwierzęta</item>
-        <!-- Dodaj więcej elementów tutaj -->
     </string-array>
+
+    <string-array name="spinner_items1">
+        <item>Jedzenie</item>
+        <item>Ubrania</item>
+        <item>Zwierzęta</item>
+    </string-array>
+
     <string name="title_activity_settings">SettingsActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
