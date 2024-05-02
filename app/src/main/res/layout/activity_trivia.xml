@@ -7,6 +7,25 @@
     android:background="#B9FA91"
     tools:context=".TriviaActivity">
 
+    <Button
+        android:id="@+id/btn_Glowna3"
+        android:layout_width="300dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/rounded"
+        android:fontFamily="@font/luckiestguy"
+        android:text="POWRÓT"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
     <TextView
         android:id="@+id/textView11"
         android:layout_width="339dp"
@@ -46,45 +65,45 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.706" />
+        app:layout_constraintVertical_bias="0.708" />
 
     <Button
         android:id="@+id/button13"
-        android:layout_width="340dp"
-        android:layout_height="41dp"
+        android:layout_width="138dp"
+        android:layout_height="42dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
         android:background="@drawable/rounded"
         android:fontFamily="@font/luckiestguy"
-        android:text="DALEJ"
+        android:text="NASTĘPNA "
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.59"
+        app:layout_constraintHorizontal_bias="0.775"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.886" />
+        app:layout_constraintVertical_bias="0.875" />
 
     <Button
         android:id="@+id/button10"
-        android:layout_width="340dp"
+        android:layout_width="138dp"
         android:layout_height="41dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
         android:background="@drawable/rounded"
         android:fontFamily="@font/luckiestguy"
-        android:text="WSTECZ"
+        android:text="POPRZEDNIA "
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.59"
+        app:layout_constraintHorizontal_bias="0.22"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.873" />
 
     <TextView
         android:id="@+id/imageView"
@@ -93,10 +112,10 @@
         android:background="@drawable/rounded_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.31" />
+        app:layout_constraintVertical_bias="0.289" />
 
     <ImageView
         android:id="@+id/imageView2"

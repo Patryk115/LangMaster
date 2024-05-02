@@ -21,7 +21,7 @@
             android:name=".SettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".DictActivity"
             android:exported="false" />
         <activity
             android:name=".TranslatorActivity"
@@ -33,7 +33,7 @@
             android:name=".TriviaActivity"
             android:exported="false" />
         <activity
-            android:name=".DictActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

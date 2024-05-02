@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity implements LoginPresenter.L
         presenter = new LoginPresenter(this, new UserModelImpl());
 
 
-        Button loginButton = findViewById(R.id.button);
+        Button loginButton = findViewById(R.id.btn_Ustawienia);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

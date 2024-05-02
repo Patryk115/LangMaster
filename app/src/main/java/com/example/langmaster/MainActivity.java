@@ -1,8 +1,11 @@
 package com.example.langmaster;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -10,5 +13,83 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Button btnTlumacz = findViewById(R.id.btn_Zatwierdz);
+        btnTlumacz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateToTranslator();
+            }
+        });
+
+        Button btnUstawienia = findViewById(R.id.btn_Ustawienia);
+        btnUstawienia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateToSettings();
+            }
+        });
+
+        Button btnNaukaSlowek = findViewById(R.id.btn_Slowka);
+        btnNaukaSlowek.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateToVocabularyLearning();
+            }
+        });
+
+        Button btnSlownik = findViewById(R.id.btn_Slownik);
+        btnSlownik.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateToDict();
+            }
+        });
+
+        Button btnCiekawostki = findViewById(R.id.btn_Ciekawostki);
+        btnCiekawostki.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateToTrivia();
+            }
+        });
+
+        Button btnZdania = findViewById(R.id.btn_Zdania);
+        btnZdania.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateToSentence();
+            }
+        });
+    }
+
+    private void navigateToTranslator() {
+        Intent intent = new Intent(this, TranslatorActivity.class);
+        startActivity(intent);
+    }
+
+    private void navigateToSettings() {
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
+    }
+
+    private void navigateToVocabularyLearning() {
+        Intent intent = new Intent(this, VocabularyLearningActivity.class);
+        startActivity(intent);
+    }
+
+    private void navigateToDict() {
+        Intent intent = new Intent(this, TranslatorActivity.class);
+        startActivity(intent);
+    }
+
+    private void navigateToTrivia() {
+        Intent intent = new Intent(this, TriviaActivity.class);
+        startActivity(intent);
+    }
+
+    private void navigateToSentence() {
+        Intent intent = new Intent(this, SentencesActivity.class);
+        startActivity(intent);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.langmaster;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +22,7 @@ public class RegistrationActivity extends AppCompatActivity implements Registrat
     private EditText passwordEditText;
     private Button registerButton;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +38,14 @@ public class RegistrationActivity extends AppCompatActivity implements Registrat
         passwordEditText = findViewById(R.id.textInputEditText7);
 
 
-        registerButton = findViewById(R.id.button3);
+        registerButton = findViewById(R.id.btn_Zatwierdz);
+        Button btnPowrot = findViewById(R.id.btn_Powrot);
+        btnPowrot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                backToLoginNoAction();
+            }
+        });
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,6 +76,12 @@ public class RegistrationActivity extends AppCompatActivity implements Registrat
 
     @Override
     public void navigateToLogin() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void backToLoginNoAction() {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
