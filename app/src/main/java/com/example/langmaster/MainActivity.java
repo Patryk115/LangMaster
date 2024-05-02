@@ -3,16 +3,26 @@ package com.example.langmaster;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.langmaster.model.FetchLanguagesTask;
+
 public class MainActivity extends AppCompatActivity {
+
+    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        spinner = findViewById(R.id.spinner3);
+        new FetchLanguagesTask(spinner, this).execute();
 
         Button btnTlumacz = findViewById(R.id.btn_Zatwierdz);
         btnTlumacz.setOnClickListener(new View.OnClickListener() {
@@ -74,10 +84,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void navigateToVocabularyLearning() {
+        int selectedLanguageId = spinner.getSelectedItemPosition();  // Pobieranie wybranego ID języka z spinnera
         Intent intent = new Intent(this, VocabularyLearningActivity.class);
+        intent.putExtra("LANGUAGE_ID", selectedLanguageId + 1);  // Przekazanie ID języka jako extra (dodajemy 1, jeśli ID języków w bazie zaczyna się od 1)
         startActivity(intent);
     }
-
     private void navigateToDict() {
         Intent intent = new Intent(this, TranslatorActivity.class);
         startActivity(intent);

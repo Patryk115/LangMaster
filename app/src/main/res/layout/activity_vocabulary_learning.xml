@@ -9,6 +9,25 @@
     tools:context=".LoginActivity">
 
     <Button
+        android:id="@+id/accept"
+        android:layout_width="340dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/rounded"
+        android:fontFamily="@font/luckiestguy"
+        android:text="ZATWIERDŹ"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.573"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.808" />
+
+    <Button
         android:id="@+id/btn_Powrot2"
         android:layout_width="340dp"
         android:layout_height="41dp"
@@ -29,8 +48,8 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText7"
-        android:layout_width="340dp"
-        android:layout_height="118dp"
+        android:layout_width="346dp"
+        android:layout_height="70dp"
         android:background="@drawable/rounded_square"
         android:fontFamily="@font/luckiestguy"
         android:hint="WPISZ TŁUMACZENIE SŁOWA "
@@ -43,13 +62,13 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.563"
+        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.646" />
+        app:layout_constraintVertical_bias="0.576" />
 
     <Button
-        android:id="@+id/btn_Zatwierdz"
+        android:id="@+id/next_word"
         android:layout_width="340dp"
         android:layout_height="41dp"
         android:layout_marginStart="5dp"
@@ -147,7 +166,7 @@
         app:layout_constraintVertical_bias="0.381" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/word_pl"
         android:layout_width="340dp"
         android:layout_height="41dp"
         android:background="@drawable/rounded_background"
@@ -164,5 +183,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.473" />
+
+    <TextView
+        android:id="@+id/is_correct"
+        android:layout_width="367dp"
+        android:layout_height="64dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.636"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.71" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
