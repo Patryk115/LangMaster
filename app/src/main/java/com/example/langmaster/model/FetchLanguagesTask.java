@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.example.langmaster.DatabaseConnector;
+import com.example.langmaster.R;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -47,8 +48,13 @@ public class FetchLanguagesTask extends AsyncTask<Void, Void, List<String>> {
 
     @Override
     protected void onPostExecute(List<String> languages) {
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, languages);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, R.layout.spinner_item, languages);
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         spinner.setAdapter(adapter);
+
+        int defaultLanguageIndex = languages.indexOf("Angielski");
+        if (defaultLanguageIndex != -1) {
+            spinner.setSelection(defaultLanguageIndex);
+        }
     }
 }
