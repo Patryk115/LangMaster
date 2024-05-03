@@ -1,11 +1,7 @@
 <resources>
     <string name="app_name">LangMaster</string>
     <string name="title_activity_registration">RegistrationActivity</string>
-    <string-array name="spinner_items">
-        <item>Jedzenie</item>
-        <item>Ubrania</item>
-        <item>Zwierzęta</item>
-    </string-array>
+
 
     <string-array name="spinner_items1">
         <item>Jedzenie</item>
@@ -13,11 +9,7 @@
         <item>Zwierzęta</item>
     </string-array>
 
-    <string-array name="spinner_items2">
-        <item>Jedzenie</item>
-        <item>Ubrania</item>
-        <item>Zwierzęta</item>
-    </string-array>
+
 
     <string name="title_activity_settings">SettingsActivity</string>
     <!-- Strings used for fragments for navigation -->

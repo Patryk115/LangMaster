@@ -3,9 +3,11 @@ package com.example.langmaster;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +16,7 @@ import com.example.langmaster.model.FetchLanguagesTask;
 public class MainActivity extends AppCompatActivity {
 
     private Spinner spinner;
+    private int selectedLanguageId = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         spinner = findViewById(R.id.spinner3);
+        final TextView languageTextView = findViewById(R.id.textView5);
+
         new FetchLanguagesTask(spinner, this).execute();
 
         Button btnTlumacz = findViewById(R.id.btn_Zatwierdz);
@@ -71,6 +76,22 @@ public class MainActivity extends AppCompatActivity {
                 navigateToSentence();
             }
         });
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selectedLanguageId = position + 1;
+                String selectedLanguage = (String) parent.getItemAtPosition(position);
+                // Ustawienie tekstu TextView na wybraną kategorię
+                languageTextView.setText(selectedLanguage);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                languageTextView.setText("Wybierz Język");
+            }
+        });
     }
 
     private void navigateToTranslator() {
@@ -89,6 +110,9 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("LANGUAGE_ID", selectedLanguageId + 1);  // Przekazanie ID języka jako extra (dodajemy 1, jeśli ID języków w bazie zaczyna się od 1)
         startActivity(intent);
     }
+
+
+
     private void navigateToDict() {
         Intent intent = new Intent(this, TranslatorActivity.class);
         startActivity(intent);

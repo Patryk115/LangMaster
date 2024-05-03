@@ -15,19 +15,19 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class VocabularyModelImpl implements VocabularyModel {
-
     @Override
-    public void fetchWord(int languageId, FetchWordCallback callback) {
-        new FetchWordTask(languageId, callback).execute();
+    public void fetchWord(int languageId, int categoryId, FetchWordCallback callback) {
+        new FetchWordTask(languageId, categoryId, callback).execute();
     }
 
     private static class FetchWordTask extends AsyncTask<Void, Void, Word> {
         private int languageId;
-
+        private int categoryId;
         private FetchWordCallback callback;
 
-        public FetchWordTask(int languageId, FetchWordCallback callback) {
+        public FetchWordTask(int languageId, int categoryId, FetchWordCallback callback) {
             this.languageId = languageId;
+            this.categoryId = categoryId;
             this.callback = callback;
         }
 
@@ -35,7 +35,7 @@ public class VocabularyModelImpl implements VocabularyModel {
         protected Word doInBackground(Void... voids) {
             try (Connection conn = DatabaseConnector.connect();
                  Statement stmt = conn.createStatement()) {
-                String sql = "SELECT word, translation FROM mobilne.words WHERE id_language = " + languageId  + " ORDER BY RANDOM() LIMIT 1";
+                String sql = "SELECT word, translation FROM mobilne.words WHERE id_language = " + languageId + " AND id_category = " + categoryId + " ORDER BY RANDOM() LIMIT 1";
                 ResultSet rs = stmt.executeQuery(sql);
                 if (rs.next()) {
                     return new Word(rs.getString("word"), rs.getString("translation"));

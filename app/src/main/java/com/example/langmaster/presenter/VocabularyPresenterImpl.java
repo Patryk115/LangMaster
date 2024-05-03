@@ -14,9 +14,8 @@ public class VocabularyPresenterImpl implements VocabularyPresenter, VocabularyM
         this.model = new VocabularyModelImpl();
     }
 
-    @Override
-    public void loadWord(int languageId) {
-        model.fetchWord(languageId,this);
+    public void loadWord(int languageId, int categoryId) {
+        model.fetchWord(languageId, categoryId, this);
     }
 
     @Override
