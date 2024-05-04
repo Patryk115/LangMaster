@@ -70,6 +70,7 @@
         android:ems="10"
         android:fontFamily="@font/luckiestguy"
         android:hint="HASŁO:"
+        android:inputType="textPassword"
         android:paddingStart="25dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
@@ -80,8 +81,7 @@
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.661"
-        android:inputType="textPassword"/>
+        app:layout_constraintVertical_bias="0.661" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText"
