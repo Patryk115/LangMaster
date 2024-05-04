@@ -115,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void navigateToDict() {
         Intent intent = new Intent(this, DictActivity.class);
+        intent.putExtra("LANGUAGE_ID", selectedLanguageId);  // Przekazanie ID języka jako extra
         startActivity(intent);
     }
 

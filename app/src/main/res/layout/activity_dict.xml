@@ -65,6 +65,7 @@
         app:layout_constraintVertical_bias="0.282" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/wordsRecyclerView"
         android:layout_width="409dp"
         android:layout_height="369dp"
         app:layout_constraintBottom_toBottomOf="parent"
