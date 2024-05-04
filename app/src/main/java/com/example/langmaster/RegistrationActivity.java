@@ -35,7 +35,7 @@ public class RegistrationActivity extends AppCompatActivity implements Registrat
         lastNameEditText = findViewById(R.id.textInputEditText4);
         emailEditText = findViewById(R.id.textInputEditText5);
         usernameEditText = findViewById(R.id.textInputEditText6);
-        passwordEditText = findViewById(R.id.textInputEditText7);
+        passwordEditText = findViewById(R.id.editTextTextPassword2);
 
 
         registerButton = findViewById(R.id.btn_Zatwierdz);
