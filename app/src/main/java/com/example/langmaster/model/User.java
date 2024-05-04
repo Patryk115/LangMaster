@@ -1,28 +1,36 @@
 package com.example.langmaster.model;
 
 public class User {
-    private String firstName;
-    private String lastName;
+    private String imie; // first name
+    private String login; // username
+    private String nazwisko;
     private String email;
     private String username;
     private String password;
 
-    public String getFirstName() {
-        return firstName;
+    public String getImie() {
+        return imie;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setImie(String imie) {
+        this.imie = imie;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getNazwisko() {
+        return nazwisko;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setNazwisko(String nazwisko) {
+        this.nazwisko = nazwisko;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
     public String getEmail() {
         return email;
     }

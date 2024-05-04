@@ -2,7 +2,7 @@ package com.example.langmaster.model;
 
 public interface UserModel {
     interface OnLoginListener {
-        void onLoginSuccess();
+        void onLoginSuccess(User user); // Accept User object
         void onLoginFailure(String message);
     }
 

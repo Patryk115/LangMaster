@@ -25,8 +25,8 @@ public class RegisterUserTask extends AsyncTask<User, Void, String> {
         try (Connection conn = DatabaseConnector.connect();
              PreparedStatement stmt = conn.prepareStatement(
                      "INSERT INTO mobilne.user (imie, nazwisko, login, password, e_mail) VALUES (?, ?, ?, ?, ?)")) {
-            stmt.setString(1, user.getFirstName());
-            stmt.setString(2, user.getLastName());
+            stmt.setString(1, user.getImie());
+            stmt.setString(2, user.getNazwisko());
             stmt.setString(3, user.getUsername());
             stmt.setString(4, user.getPassword());
             stmt.setString(5, user.getEmail());

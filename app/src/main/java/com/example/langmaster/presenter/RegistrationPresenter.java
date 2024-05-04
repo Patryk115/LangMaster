@@ -15,8 +15,8 @@ public class RegistrationPresenter {
 
     public void register(String firstName, String lastName, String email, String username, String password) {
         User newUser = new User();
-        newUser.setFirstName(firstName);
-        newUser.setLastName(lastName);
+        newUser.setImie(firstName);
+        newUser.setNazwisko(lastName);
         newUser.setEmail(email);
         newUser.setUsername(username);
         newUser.setPassword(password);

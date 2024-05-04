@@ -66,12 +66,13 @@
         android:id="@+id/editTextTextPassword"
         android:layout_width="370dp"
         android:layout_height="60dp"
-        android:ems="10"
-        android:inputType="textVisiblePassword"
         android:background="@drawable/rounded_background"
+        android:ems="10"
         android:fontFamily="@font/luckiestguy"
         android:hint="HASŁO:"
+        android:inputType="textVisiblePassword"
         android:paddingStart="25dp"
+        android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -80,9 +81,7 @@
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.661"
-        tools:layout_editor_absoluteX="95dp"
-        tools:layout_editor_absoluteY="522dp" />
+        app:layout_constraintVertical_bias="0.661" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText"
@@ -93,7 +92,7 @@
         android:hint="LOGIN:"
         android:includeFontPadding="true"
         android:paddingStart="25dp"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textColorHint="#FAFAFA"
         android:textSize="20sp"
         android:textStyle="bold"

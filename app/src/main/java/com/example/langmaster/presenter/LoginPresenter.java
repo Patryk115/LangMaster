@@ -1,11 +1,12 @@
 package com.example.langmaster.presenter;
 
+import com.example.langmaster.model.User;
 import com.example.langmaster.model.UserModel;
 
 public class LoginPresenter {
     public interface LoginView {
         void setLoginError(String errorMessage);
-        void navigateToHome();
+        void navigateToHome(User user);
     }
 
     private final LoginView loginView;
@@ -17,14 +18,11 @@ public class LoginPresenter {
     }
 
     public void validateCredentials(String username, String password) {
-        if (loginView != null) {
-        }
-
         userModel.login(username, password, new UserModel.OnLoginListener() {
             @Override
-            public void onLoginSuccess() {
+            public void onLoginSuccess(User user) {
                 if (loginView != null) {
-                    loginView.navigateToHome();
+                    loginView.navigateToHome(user); // Updated to pass User object
                 }
             }
 
@@ -38,7 +36,6 @@ public class LoginPresenter {
     }
 
     public void onDestroy() {
-
-
+        // Cleanup resources if needed
     }
 }
