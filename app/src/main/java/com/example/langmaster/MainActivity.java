@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void navigateToDict() {
-        Intent intent = new Intent(this, TranslatorActivity.class);
+        Intent intent = new Intent(this, DictActivity.class);
         startActivity(intent);
     }
 
