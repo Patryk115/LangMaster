@@ -50,7 +50,7 @@
         android:layout_width="284dp"
         android:layout_height="182dp"
         android:background="@drawable/rounded_square"
-        android:fontFamily="@font/luckiestguy"
+        android:fontFamily="@font/inter_bold"
         android:gravity="center"
         android:hint="CIEKAWOSTKA..."
         android:includeFontPadding="true"
