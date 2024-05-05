@@ -37,7 +37,7 @@
         android:hint="IMIĘ :"
         android:includeFontPadding="true"
         android:paddingStart="25dp"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textColorHint="#FAFAFA"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -48,25 +48,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.42" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText7"
-        android:layout_width="340dp"
-        android:layout_height="41dp"
-        android:background="@drawable/rounded_background"
-        android:fontFamily="@font/luckiestguy"
-        android:hint="HASŁO :"
-        android:includeFontPadding="true"
-        android:paddingStart="25dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FAFAFA"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.74" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText6"
@@ -77,7 +58,7 @@
         android:hint="LOGIN:"
         android:includeFontPadding="true"
         android:paddingStart="25dp"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textColorHint="#FAFAFA"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -97,7 +78,7 @@
         android:hint="E-MAIL :"
         android:includeFontPadding="true"
         android:paddingStart="25dp"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textColorHint="#FAFAFA"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -117,7 +98,7 @@
         android:hint="NAZWISKO :"
         android:includeFontPadding="true"
         android:paddingStart="25dp"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textColorHint="#FAFAFA"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -187,5 +168,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.026" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword2"
+        android:layout_width="340dp"
+        android:layout_height="41dp"
+        android:background="@drawable/rounded_background"
+        android:fontFamily="@font/luckiestguy"
+        android:hint="HASŁO :"
+        android:includeFontPadding="true"
+        android:paddingStart="25dp"
+        android:textColor="#000000"
+        android:textColorHint="#FAFAFA"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.74"
+        android:inputType="textPassword"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
