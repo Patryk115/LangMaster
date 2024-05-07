@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#B9FA91"
-    tools:context=".SettingsActivity">
+    tools:context=".SettingsActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="-53dp">
 
     <TextView
         android:id="@+id/textView21"
@@ -27,22 +29,22 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.037" />
+        app:layout_constraintVertical_bias="0.264" />
 
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="385dp"
         android:layout_height="174dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="15dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/rounded_square"
         android:paddingLeft="-60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.21">
+        app:layout_constraintVertical_bias="0.439">
 
         <TableRow
             android:layout_width="252dp"
@@ -187,72 +189,9 @@
         app:layout_constraintVertical_bias="0.897" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="388dp"
-        android:layout_height="148dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/rounded_square"
-        android:orientation="vertical"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.565"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.559">
-
-        <TextView
-            android:id="@+id/motyw"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:fontFamily="@font/luckiestguy"
-            android:paddingLeft="15dp"
-            android:paddingTop="10dp"
-            android:shadowColor="#56DB05"
-            android:shadowDx="5"
-            android:shadowDy="5"
-            android:shadowRadius="1.6"
-            android:text="ZMIEŃ MOTYW:"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="#FFFFFF"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/btn_Jasny"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/rounded_change_theme"
-            android:fontFamily="@font/luckiestguy"
-            android:text="JASNY"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/btn_Ciemny"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/rounded_change_theme"
-            android:fontFamily="@font/luckiestguy"
-            android:text="CIEMNY"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="384dp"
-        android:layout_height="111dp"
+        android:layout_width="391dp"
+        android:layout_height="151dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/rounded_square"
@@ -260,10 +199,10 @@
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.801">
+        app:layout_constraintVertical_bias="0.774">
 
         <TextView
             android:id="@+id/jezyk"
@@ -281,6 +220,20 @@
             android:textAllCaps="true"
             android:textColor="#FFFFFF"
             android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_Polski"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/rounded"
+            android:fontFamily="@font/luckiestguy"
+            android:text="POLSKI"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <Button

@@ -7,6 +7,21 @@
     android:background="#B9FA91"
     tools:context=".TranslatorActivity">
 
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="379dp"
+        android:layout_height="129dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="15dp"
+        android:radius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.027"
+        app:srcCompat="@drawable/backimg" />
+
     <Button
         android:id="@+id/btn_Glowna2"
         android:layout_width="300dp"
@@ -59,7 +74,7 @@
         app:layout_constraintHorizontal_bias="0.548"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.665" />
+        app:layout_constraintVertical_bias="0.679" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText13"
@@ -79,7 +94,7 @@
         app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.789" />
+        app:layout_constraintVertical_bias="0.805" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText12"
@@ -99,7 +114,7 @@
         app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.554" />
+        app:layout_constraintVertical_bias="0.591" />
 
     <TextView
         android:id="@+id/textView14"
@@ -115,7 +130,7 @@
         app:layout_constraintHorizontal_bias="0.548"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.452" />
+        app:layout_constraintVertical_bias="0.474" />
 
     <TextView
         android:id="@+id/textView13"
@@ -131,7 +146,7 @@
         app:layout_constraintHorizontal_bias="0.732"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.311" />
+        app:layout_constraintVertical_bias="0.336" />
 
     <TextView
         android:id="@+id/textView12"
@@ -154,7 +169,7 @@
         android:layout_width="93dp"
         android:layout_height="47dp"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="56dp"
         android:background="@drawable/rounded_background"
         android:fontFamily="@font/luckiestguy"
         android:includeFontPadding="true"
@@ -170,8 +185,8 @@
         android:id="@+id/textInputEditText10"
         android:layout_width="93dp"
         android:layout_height="47dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="80dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="84dp"
         android:background="@drawable/rounded_background"
         android:fontFamily="@font/luckiestguy"
         android:includeFontPadding="true"
@@ -205,26 +220,7 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.18" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="339dp"
-        android:layout_height="120dp"
-        android:autoText="false"
-        android:background="@drawable/rounded_logo"
-        android:fontFamily="@font/inter_bold"
-        android:gravity="center"
-        android:text="LangMaster"
-        android:textAlignment="center"
-        android:textColor="#A4EB79"
-        android:textSize="40sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.006" />
+        app:layout_constraintVertical_bias="0.208" />
 
     <TextView
         android:id="@+id/textView10"
@@ -239,6 +235,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.263" />
+        app:layout_constraintVertical_bias="0.281" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
