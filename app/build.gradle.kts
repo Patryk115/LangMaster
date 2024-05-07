@@ -47,6 +47,11 @@ android {
 dependencies {
 
 
+    implementation ("com.google.mlkit:language-id:16.0.0")
+    implementation ("com.google.mlkit:translate:16.0.0")
+    implementation ("androidx.appcompat:appcompat:1.2.0")
+    implementation ("com.google.android.material:material:1.2.0")
+
     implementation("org.postgresql:postgresql:42.2.5")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
