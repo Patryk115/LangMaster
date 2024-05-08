@@ -12,7 +12,7 @@ public class DatabaseConnector {
     private static final String USER = "2023_kindra_patryk";
     private static final String PASSWORD = "36375";
 
-    private static final String TAG = "DatabaseConnector"; // Tag używany w Logcat
+    private static final String TAG = "DatabaseConnector";
 
     public static Connection connect() throws SQLException {
         try {

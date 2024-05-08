@@ -57,7 +57,7 @@ public class DictActivity extends AppCompatActivity implements DictView {
                 categoryTextView.setText(selectedCategory);
 
                 int languageId = getIntent().getIntExtra("LANGUAGE_ID", 1);
-                presenter.loadWords(languageId, selectedCategoryId); // Upewnij się, że ta linia jest dodana
+                presenter.loadWords(languageId, selectedCategoryId);
             }
 
             @Override

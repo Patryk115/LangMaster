@@ -105,9 +105,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void navigateToVocabularyLearning() {
-        int selectedLanguageId = spinner.getSelectedItemPosition();  // Pobieranie wybranego ID języka z spinnera
+        int selectedLanguageId = spinner.getSelectedItemPosition();
         Intent intent = new Intent(this, VocabularyLearningActivity.class);
-        intent.putExtra("LANGUAGE_ID", selectedLanguageId + 1);  // Przekazanie ID języka jako extra (dodajemy 1, jeśli ID języków w bazie zaczyna się od 1)
+        intent.putExtra("LANGUAGE_ID", selectedLanguageId + 1);
         startActivity(intent);
     }
 
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void navigateToDict() {
         Intent intent = new Intent(this, DictActivity.class);
-        intent.putExtra("LANGUAGE_ID", selectedLanguageId);  // Przekazanie ID języka jako extra
+        intent.putExtra("LANGUAGE_ID", selectedLanguageId);
         startActivity(intent);
     }
 

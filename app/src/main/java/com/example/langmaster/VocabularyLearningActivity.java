@@ -22,10 +22,10 @@ import com.example.langmaster.view.VocabularyView;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class VocabularyLearningActivity extends AppCompatActivity implements VocabularyView {
-    private TextView wordTextView;  // Deklaracja TextView dla słowa
-    private VocabularyPresenter presenter;  // Deklaracja prezentera
+    private TextView wordTextView;
+    private VocabularyPresenter presenter;
     private Word currentWord;
-    private TextInputEditText translationInputEditText;  // EditText for entering/displaying the translation
+    private TextInputEditText translationInputEditText;
 
     private TextView isCorrectTextView;
 
@@ -41,6 +41,8 @@ public class VocabularyLearningActivity extends AppCompatActivity implements Voc
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vocabulary_learning);
 
+
+
         wordTextView = findViewById(R.id.word_pl);
         translationInputEditText = findViewById(R.id.textInputEditText7);
         isCorrectTextView = findViewById(R.id.is_correct);
@@ -54,14 +56,14 @@ public class VocabularyLearningActivity extends AppCompatActivity implements Voc
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                // Pobranie wybranej kategorii
-                selectedCategoryId = position + 1; // Zakładając, że ID kategorii zaczynają się od 1
+
+                selectedCategoryId = position + 1;
                 String selectedCategory = (String) parent.getItemAtPosition(position);
-                // Ustawienie tekstu TextView na wybraną kategorię
+
                 categoryTextView.setText(selectedCategory);
 
-                // Natychmiastowe ładowanie nowego słowa dla wybranej kategorii i języka
-                int languageId = getIntent().getIntExtra("LANGUAGE_ID", 1); // Pobierz ID języka przekazane z MainActivity
+
+                int languageId = getIntent().getIntExtra("LANGUAGE_ID", 1);
                 presenter.loadWord(languageId, selectedCategoryId);
             }
 
@@ -71,11 +73,11 @@ public class VocabularyLearningActivity extends AppCompatActivity implements Voc
             }
         });
 
-        // Odbieranie ID języka przekazanego z MainActivity
-        int languageId = getIntent().getIntExtra("LANGUAGE_ID", 1);  // Domyślnie ustawiamy na 1, jeśli nie przekazano żadnego ID
+
+        int languageId = getIntent().getIntExtra("LANGUAGE_ID", 1);
 
         presenter = new VocabularyPresenterImpl(this);
-        presenter.loadWord(languageId, selectedCategoryId);  // Użycie przekazanego ID języka do pobierania słów
+        presenter.loadWord(languageId, selectedCategoryId);
 
         Button btnNextWord = findViewById(R.id.next_word);
         btnNextWord.setOnClickListener(new View.OnClickListener() {
@@ -92,8 +94,8 @@ public class VocabularyLearningActivity extends AppCompatActivity implements Voc
             public void onClick(View v) {
                 if (totalAttempts >= SESSION_LENGTH) {
                     resetSession();
-                    int languageId = getIntent().getIntExtra("LANGUAGE_ID", 1); // Pobierz ID języka przekazane z MainActivity
-                    presenter.loadWord(languageId, selectedCategoryId); // Ładowanie nowego słowa
+                    int languageId = getIntent().getIntExtra("LANGUAGE_ID", 1);
+                    presenter.loadWord(languageId, selectedCategoryId);
                 } else {
                     verifyTranslation();
                 }
@@ -113,8 +115,8 @@ public class VocabularyLearningActivity extends AppCompatActivity implements Voc
     public void showWord(Word word) {
         currentWord = word;
         wordTextView.setText(word.getPolishWord());
-        translationInputEditText.setText(""); // Czyści pole po załadowaniu nowego słowa
-        isCorrectTextView.setText(""); // Czyści poprzedni wynik
+        translationInputEditText.setText("");
+        isCorrectTextView.setText("");
     }
 
     @Override
@@ -137,7 +139,7 @@ public class VocabularyLearningActivity extends AppCompatActivity implements Voc
             totalAttempts++;
 
             if (totalAttempts == SESSION_LENGTH) {
-                // Wyświetlanie wyniku końcowego sesji
+
                 isCorrectTextView.setText("Wynik sesji: " + correctAnswers + "/" + SESSION_LENGTH + ". Kliknij 'Zatwiedź', aby zacząć nową sesję.");
             }
         }
@@ -148,7 +150,7 @@ public class VocabularyLearningActivity extends AppCompatActivity implements Voc
         correctAnswers = 0;
         isCorrectTextView.setText("");
         translationInputEditText.setText("");
-        // Nie ładuj automatycznie nowego słowa
+
     }
 
     private void backToHomeNoAction() {

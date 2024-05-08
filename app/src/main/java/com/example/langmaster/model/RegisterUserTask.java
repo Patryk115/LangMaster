@@ -23,12 +23,10 @@ public class RegisterUserTask extends AsyncTask<User, Void, String> {
         }
         User user = users[0];
 
-        // Sprawdzenie czy użytkownik o danym loginie już istnieje
         if (DatabaseConnector.checkUserExists(user.getUsername())) {
             return "Użytkownik o takim loginie już istnieje";
         }
 
-        // Próba dodania nowego użytkownika
         try (Connection conn = DatabaseConnector.connect();
              PreparedStatement stmt = conn.prepareStatement(
                      "INSERT INTO mobilne.user (imie, nazwisko, login, password, e_mail) VALUES (?, ?, ?, ?, ?)")) {
@@ -42,7 +40,7 @@ public class RegisterUserTask extends AsyncTask<User, Void, String> {
             if (affectedRows > 0) {
                 return null; // Success
             } else {
-                return "No rows affected"; // Failure
+                return "No rows affected";
             }
         } catch (SQLException e) {
             Log.e("UserRepositoryImpl", "SQL Error", e);

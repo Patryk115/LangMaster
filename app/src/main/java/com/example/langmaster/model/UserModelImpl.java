@@ -32,7 +32,7 @@ public class UserModelImpl implements UserModel {
                         user.setEmail(rs.getString("e_mail"));
                         listener.onLoginSuccess(user);
                     } else {
-                        listener.onLoginFailure("Incorrect login or password");
+                        listener.onLoginFailure("Błędny login lub hasło");
                     }
                 } catch (SQLException e) {
                     Log.e(TAG, "SQL Exception: " + e.getMessage());
