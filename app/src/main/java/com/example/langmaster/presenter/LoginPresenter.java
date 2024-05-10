@@ -34,8 +34,4 @@ public class LoginPresenter {
             }
         });
     }
-
-    public void onDestroy() {
-
-    }
 }

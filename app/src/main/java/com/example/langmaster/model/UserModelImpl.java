@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import com.example.langmaster.DatabaseConnector;
 
-import android.util.Log; // Import potrzebny do logowania
+import android.util.Log;
 
 public class UserModelImpl implements UserModel {
     private static final String TAG = "UserModelImpl";

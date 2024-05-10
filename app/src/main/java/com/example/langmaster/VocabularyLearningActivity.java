@@ -7,17 +7,14 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TextView;  // Import klasy TextView
+import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.langmaster.model.FetchCategoryTask;
-import com.example.langmaster.model.FetchLanguagesTask;
 import com.example.langmaster.model.Word;
 import com.example.langmaster.presenter.VocabularyPresenterImpl;
-import com.example.langmaster.presenter.VocabularyPresenter;  // Import interfejsu prezentera
+import com.example.langmaster.presenter.VocabularyPresenter;
 import com.example.langmaster.view.VocabularyView;
 import com.google.android.material.textfield.TextInputEditText;
 

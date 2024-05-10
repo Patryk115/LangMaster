@@ -7,12 +7,6 @@ import com.example.langmaster.DatabaseConnector;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.Random;
-
-import android.os.AsyncTask;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
 public class VocabularyModelImpl implements VocabularyModel {
     @Override

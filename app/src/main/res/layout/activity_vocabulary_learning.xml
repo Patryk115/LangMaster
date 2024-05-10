@@ -23,22 +23,22 @@
 
     <Button
         android:id="@+id/accept"
-        android:layout_width="340dp"
-        android:layout_height="41dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
         android:background="@drawable/rounded"
         android:fontFamily="@font/luckiestguy"
-        android:text="ZATWIERDŹ"
+        android:text="@string/zatwierdz"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.557"
+        app:layout_constraintHorizontal_bias="0.125"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.821" />
+        app:layout_constraintVertical_bias="0.832" />
 
     <Button
         android:id="@+id/btn_Powrot2"
@@ -48,7 +48,7 @@
         android:layout_marginEnd="5dp"
         android:background="@drawable/rounded"
         android:fontFamily="@font/luckiestguy"
-        android:text="POWRÓT"
+        android:text="@string/powrot"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -57,7 +57,7 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.943" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText7"
@@ -65,7 +65,7 @@
         android:layout_height="70dp"
         android:background="@drawable/rounded_square"
         android:fontFamily="@font/freeman"
-        android:hint="WPISZ TŁUMACZENIE SŁOWA "
+        android:hint="@string/wpisz_tlumaczenie_slowa"
         android:includeFontPadding="true"
         android:paddingStart="10dp"
         android:textAlignment="center"
@@ -75,29 +75,29 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.576" />
 
     <Button
         android:id="@+id/next_word"
-        android:layout_width="340dp"
-        android:layout_height="41dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
         android:background="@drawable/rounded"
         android:fontFamily="@font/luckiestguy"
-        android:text="NASTĘPNE SŁOWO"
+        android:text="@string/nastepne_slowo"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.880"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.898" />
+        app:layout_constraintVertical_bias="0.832" />
 
     <TextView
         android:id="@+id/textView"
@@ -106,10 +106,10 @@
         android:layout_marginTop="10dp"
         android:fontFamily="@font/luckiestguy"
         android:shadowColor="#0000FF"
-        android:shadowDx="5"
-        android:shadowDy="5"
-        android:shadowRadius="1.6"
-        android:text="WPISZ TŁUMACZENIE PODANEGO SŁOWA :"
+        android:shadowDx="7"
+        android:shadowDy="7"
+        android:shadowRadius="3"
+        android:text="@string/wpisz_tlumaczenie_slowa"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
@@ -135,7 +135,7 @@
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.605"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.394" />
@@ -154,7 +154,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.549"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.394" />
@@ -167,13 +167,12 @@
         android:fontFamily="@font/freeman"
         android:paddingStart="10dp"
         android:paddingTop="8dp"
-        android:text="LOSOWE SŁOWO"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.563"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.473" />
@@ -190,7 +189,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.568"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.71" />

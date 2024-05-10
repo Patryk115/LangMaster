@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LangMaster</string>
+    <string name="witamy">WELCOME!</string>
+    <string name="wybierz_jezyk">CHOOSE LANGUAGE</string>
+    <string name="ustawienia">SETTINGS</string>
+    <string name="wybierz_kategorie">CHOOSE CATEGORY</string>
+    <string name="powrot">BACK</string>
+    <string name="haslo">PASSWORD:</string>
+    <string name="zaloguj_sie">SIGN IN</string>
+    <string name="rejestracja">Dont have an account yet? Register</string>
+    <string name="nauka_slowek">VOCABULARY LEARNING</string>
+    <string name="slownik">DICTIONARY</string>
+    <string name="zdania">SENTENCES</string>
+    <string name="ciekawostki">TRIVIA</string>
+    <string name="tlumacz">TRANSLATOR</string>
+    <string name="imie">NAME:</string>
+    <string name="nazwisko">SURNAME</string>
+    <string name="zatwierdz">CONFIRM</string>
+    <string name="utworz_konto">CREATE ACCOUNT</string>
+    <string name="poprzednie">PREVIOUS</string>
+    <string name="nastepne">NEXT</string>
+    <string name="uzupelnij_zdania">COMPLETE SENTENCES</string>
+    <string name="zmien_jezyk">CHANGE LANGUAGE</string>
+    <string name="angielski">ENGLISH</string>
+    <string name="polski">POLISH</string>
+    <string name="strona_glowna">MAIN PAGE</string>
+    <string name="wyloguj">LOG OUT</string>
+    <string name="przetlumacz">TRANSLATE</string>
+    <string name="tlumaczenie">TRANSLATION</string>
+    <string name="wpisz_tekst">ENTER TEXT</string>
+    <string name="z">FROM</string>
+    <string name="na">TO</string>
+    <string name="nastepne_slowo">NEXT WORD</string>
+    <string name="losowe_slow">RANDOM WORD</string>
+    <string name="wpisz_tlumaczenie_slowa">ENTER TRANSLATION OF WORD</string>
+</resources>

@@ -1,7 +1,5 @@
 package com.example.langmaster.model;
 
-import com.example.langmaster.model.RegisterUserTask;
-
 public class UserRepositoryImpl implements UserRepository {
 
     @Override

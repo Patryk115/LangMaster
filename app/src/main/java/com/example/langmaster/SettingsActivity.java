@@ -2,12 +2,14 @@ package com.example.langmaster;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
+import java.util.Locale;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -21,6 +23,22 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 navigateToHome();
+            }
+        });
+
+        Button btnAngielski = findViewById(R.id.btn_Angielski);
+        btnAngielski.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setLocale("en");
+            }
+        });
+
+        Button btnPolski = findViewById(R.id.btn_Polski);
+        btnPolski.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setLocale("pl");
             }
         });
 
@@ -60,5 +78,18 @@ public class SettingsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    private void setLocale(String languageCode) {
+        Locale locale = new Locale(languageCode);
+        Locale.setDefault(locale);
+        Resources resources = getResources();
+        Configuration config = resources.getConfiguration();
+        config.locale = locale;
+        resources.updateConfiguration(config, resources.getDisplayMetrics());
+
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
     }
 }

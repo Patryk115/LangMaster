@@ -3,24 +3,18 @@ package com.example.langmaster;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-
 import com.example.langmaster.model.FetchCategoryTask;
 import com.example.langmaster.model.Word;
 import com.example.langmaster.presenter.DictPresenter;
-import com.example.langmaster.presenter.VocabularyPresenter;
-import com.example.langmaster.presenter.VocabularyPresenterImpl;
 import com.example.langmaster.view.DictView;
-
 import java.util.List;
 
 public class DictActivity extends AppCompatActivity implements DictView {
@@ -82,7 +76,6 @@ public class DictActivity extends AppCompatActivity implements DictView {
 
     @Override
     public void displayError() {
-        // Wyświetl komunikat o błędzie
     }
 
     private void backToHomeNoAction() {
