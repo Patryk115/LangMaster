@@ -22,6 +22,11 @@ public class RegisterUserTask extends AsyncTask<User, Void, String> {
             return "Invalid user data";
         }
         User user = users[0];
+
+        if (DatabaseConnector.checkUserExists(user.getUsername())) {
+            return "Użytkownik o takim loginie już istnieje";
+        }
+
         try (Connection conn = DatabaseConnector.connect();
              PreparedStatement stmt = conn.prepareStatement(
                      "INSERT INTO mobilne.user (imie, nazwisko, login, password, e_mail) VALUES (?, ?, ?, ?, ?)")) {
@@ -35,11 +40,11 @@ public class RegisterUserTask extends AsyncTask<User, Void, String> {
             if (affectedRows > 0) {
                 return null; // Success
             } else {
-                return "No rows affected"; // Failure
+                return "No rows affected";
             }
         } catch (SQLException e) {
-            Log.e("UserRepositoryImpl", "Błąd SQL", e);
-            return "Błąd SQL: " + e.getMessage();
+            Log.e("UserRepositoryImpl", "SQL Error", e);
+            return "SQL Error: " + e.getMessage();
         }
     }
 

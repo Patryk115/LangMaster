@@ -22,7 +22,7 @@ public class LoginPresenter {
             @Override
             public void onLoginSuccess(User user) {
                 if (loginView != null) {
-                    loginView.navigateToHome(user); // Updated to pass User object
+                    loginView.navigateToHome(user);
                 }
             }
 
@@ -36,6 +36,6 @@ public class LoginPresenter {
     }
 
     public void onDestroy() {
-        // Cleanup resources if needed
+
     }
 }

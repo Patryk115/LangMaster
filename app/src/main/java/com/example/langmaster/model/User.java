@@ -1,8 +1,8 @@
 package com.example.langmaster.model;
 
 public class User {
-    private String imie; // first name
-    private String login; // username
+    private String imie;
+    private String login;
     private String nazwisko;
     private String email;
     private String username;
