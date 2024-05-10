@@ -4,8 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B9FA91"
+    android:background="#87CEFA"
     tools:context=".TriviaActivity">
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="373dp"
+        android:layout_height="192dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.005"
+        app:srcCompat="@drawable/backimg" />
 
     <Button
         android:id="@+id/btn_Glowna3"
@@ -27,25 +39,6 @@
         app:layout_constraintVertical_bias="0.976" />
 
     <TextView
-        android:id="@+id/textView11"
-        android:layout_width="339dp"
-        android:layout_height="120dp"
-        android:autoText="false"
-        android:background="@drawable/rounded_logo"
-        android:fontFamily="@font/inter_bold"
-        android:gravity="center"
-        android:text="LangMaster"
-        android:textAlignment="center"
-        android:textColor="#A4EB79"
-        android:textSize="40sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.026" />
-
-    <TextView
         android:id="@+id/trivia"
         android:layout_width="284dp"
         android:layout_height="182dp"
@@ -65,7 +58,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.708" />
+        app:layout_constraintVertical_bias="0.748" />
 
     <Button
         android:id="@+id/button13"
@@ -115,7 +108,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.289" />
+        app:layout_constraintVertical_bias="0.373" />
 
     <ImageView
         android:id="@+id/imageView2"
