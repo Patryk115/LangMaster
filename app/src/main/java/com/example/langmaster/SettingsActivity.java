@@ -24,6 +24,14 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
+        Button btnWyloguj = findViewById(R.id.btn_Wyloguj);
+        btnWyloguj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logoutUser();
+            }
+        });
+
         SharedPreferences prefs = getSharedPreferences("UserData", MODE_PRIVATE);
         String login = prefs.getString("Login", "N/A");
         String imie = prefs.getString("Imie", "N/A");
@@ -41,5 +49,16 @@ public class SettingsActivity extends AppCompatActivity {
     private void navigateToHome() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    private void logoutUser() {
+        SharedPreferences prefs = getSharedPreferences("UserData", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.clear();
+        editor.apply();
+
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
