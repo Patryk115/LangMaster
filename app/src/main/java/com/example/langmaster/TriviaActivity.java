@@ -1,13 +1,26 @@
 package com.example.langmaster;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-public class TriviaActivity extends AppCompatActivity {
+import com.example.langmaster.presenter.TriviaPresenter;
+import com.example.langmaster.view.TriviaView;
 
+public class TriviaActivity extends AppCompatActivity implements TriviaView {
+
+    private TriviaPresenter presenter;
+    private ImageView imageView;
+    private TextView textView;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,10 +33,31 @@ public class TriviaActivity extends AppCompatActivity {
                 backToHomeNoAction();
             }
         });
+
+        imageView = findViewById(R.id.triviaImage);
+        textView = findViewById(R.id.triviaText);
+
+        presenter = new TriviaPresenter(this);
+        presenter.loadTrivia();
+
+        findViewById(R.id.button13).setOnClickListener(v -> presenter.nextTrivia());
+        findViewById(R.id.button10).setOnClickListener(v -> presenter.previousTrivia());
     }
 
     private void backToHomeNoAction() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void displayTrivia(byte[] imageBytes, String description) {
+        Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+        imageView.setImageBitmap(bitmap);
+        textView.setText(description);
+    }
+
+    @Override
+    public void displayError(String message) {
+        textView.setText(message);
     }
 }

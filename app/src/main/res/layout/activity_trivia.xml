@@ -9,14 +9,14 @@
 
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="373dp"
-        android:layout_height="192dp"
+        android:layout_width="372dp"
+        android:layout_height="153dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintHorizontal_bias="0.421"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.005"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/backimg" />
 
     <Button
@@ -36,12 +36,12 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.99" />
 
     <TextView
-        android:id="@+id/trivia"
-        android:layout_width="284dp"
-        android:layout_height="182dp"
+        android:id="@+id/triviaText"
+        android:layout_width="320dp"
+        android:layout_height="200dp"
         android:background="@drawable/rounded_square"
         android:fontFamily="@font/inter_bold"
         android:gravity="center"
@@ -58,7 +58,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.748" />
+        app:layout_constraintVertical_bias="0.78" />
 
     <Button
         android:id="@+id/button13"
@@ -77,7 +77,7 @@
         app:layout_constraintHorizontal_bias="0.775"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.875" />
+        app:layout_constraintVertical_bias="0.90999997" />
 
     <Button
         android:id="@+id/button10"
@@ -96,27 +96,34 @@
         app:layout_constraintHorizontal_bias="0.22"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.873" />
+        app:layout_constraintVertical_bias="0.90999997" />
 
     <TextView
-        android:id="@+id/imageView"
-        android:layout_width="284dp"
-        android:layout_height="182dp"
-        android:background="@drawable/rounded_background"
+        android:id="@+id/textView2"
+        android:layout_width="320dp"
+        android:layout_height="200dp"
+        android:background="@drawable/rounded_back_and_img"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.373" />
+        app:layout_constraintVertical_bias="0.32999998" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="240dp"
-        android:layout_height="174dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        app:srcCompat="@drawable/rounded" />
+        android:id="@+id/triviaImage"
+        android:layout_width="310dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_back_and_img"
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.32999998" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
