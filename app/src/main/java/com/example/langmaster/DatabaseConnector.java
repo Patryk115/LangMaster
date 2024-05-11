@@ -1,5 +1,7 @@
 package com.example.langmaster;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -39,5 +41,21 @@ public class DatabaseConnector {
             Log.e("DatabaseConnector", "SQL Error", e);
         }
         return false;
+    }
+
+    public static Bitmap getImage(int triviaId) {
+        String query = "SELECT image FROM mobilne.trivia WHERE id_trivia = ?";
+        try (Connection conn = connect();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, triviaId);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                byte[] imageData = rs.getBytes("image");
+                return BitmapFactory.decodeByteArray(imageData, 0, imageData.length);
+            }
+        } catch (SQLException e) {
+            Log.e(TAG, "SQL Error", e);
+        }
+        return null;
     }
 }

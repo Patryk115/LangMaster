@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+
+import com.example.langmaster.model.FetchImageTask;
 
 public class TriviaActivity extends AppCompatActivity {
 
@@ -12,6 +15,9 @@ public class TriviaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trivia);
+
+        ImageView imageView = (ImageView) findViewById(R.id.Obraz);
+        new FetchImageTask(imageView).execute(1);
 
         Button btnGlowna2 = findViewById(R.id.btn_Glowna3);
         btnGlowna2.setOnClickListener(new View.OnClickListener() {
