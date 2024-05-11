@@ -123,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void navigateToSentence() {
         Intent intent = new Intent(this, SentencesActivity.class);
+        intent.putExtra("LANGUAGE_ID", selectedLanguageId);
         startActivity(intent);
     }
 }
