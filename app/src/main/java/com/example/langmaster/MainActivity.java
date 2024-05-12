@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        setupSpinner(); // Ensures spinner reflects current locale
+        setupSpinner();
     }
 
     private void setupButtonListeners() {
@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void navigateToTrivia() {
         Intent intent = new Intent(this, TriviaActivity.class);
+        intent.putExtra("LANGUAGE_ID", selectedLanguageId);
         startActivity(intent);
     }
 

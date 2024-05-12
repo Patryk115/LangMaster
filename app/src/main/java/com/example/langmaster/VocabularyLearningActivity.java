@@ -119,12 +119,12 @@ public class VocabularyLearningActivity extends AppCompatActivity implements Voc
         String userTranslation = translationInputEditText.getText().toString().trim();
         if (userTranslation.equalsIgnoreCase(currentWord.getTranslatedWord())) {
             correctAnswers++;
-            isCorrectTextView.setText("Dobrze!!!");
-            isCorrectTextView.setTextColor(Color.GREEN);
+            isCorrectTextView.setText("Poprawne tłumaczenie!");
+            isCorrectTextView.setTextColor(getResources().getColor(R.color.text_correct));
         } else {
             String correctMsg = "Źle, poprawne tłumaczenie: " + currentWord.getTranslatedWord();
             isCorrectTextView.setText(correctMsg);
-            isCorrectTextView.setTextColor(Color.RED);
+            isCorrectTextView.setTextColor(getResources().getColor(R.color.text_incorrect));
         }
         totalAttempts++;
 
