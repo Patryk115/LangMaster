@@ -4,89 +4,60 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.langmaster.model.FetchLanguagesTask;
 
 public class MainActivity extends AppCompatActivity {
 
     private Spinner spinner;
     private int selectedLanguageId = 1;
+    private TextView languageTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         spinner = findViewById(R.id.spinner3);
-        final TextView languageTextView = findViewById(R.id.textView5);
+        languageTextView = findViewById(R.id.textView5);
+        setupButtonListeners();
+        setupSpinner();
+    }
 
-        new FetchLanguagesTask(spinner, this).execute();
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setupSpinner(); // Ensures spinner reflects current locale
+    }
 
-        Button btnTlumacz = findViewById(R.id.btn_Zatwierdz);
-        btnTlumacz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navigateToTranslator();
-            }
-        });
+    private void setupButtonListeners() {
+        findViewById(R.id.btn_Zatwierdz).setOnClickListener(v -> navigateToTranslator());
+        findViewById(R.id.btn_Ustawienia).setOnClickListener(v -> navigateToSettings());
+        findViewById(R.id.btn_Slowka).setOnClickListener(v -> navigateToVocabularyLearning());
+        findViewById(R.id.btn_Slownik).setOnClickListener(v -> navigateToDict());
+        findViewById(R.id.btn_Ciekawostki).setOnClickListener(v -> navigateToTrivia());
+        findViewById(R.id.btn_Zdania).setOnClickListener(v -> navigateToSentence());
+    }
 
-        Button btnUstawienia = findViewById(R.id.btn_Ustawienia);
-        btnUstawienia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navigateToSettings();
-            }
-        });
-
-        Button btnNaukaSlowek = findViewById(R.id.btn_Slowka);
-        btnNaukaSlowek.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navigateToVocabularyLearning();
-            }
-        });
-
-        Button btnSlownik = findViewById(R.id.btn_Slownik);
-        btnSlownik.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navigateToDict();
-            }
-        });
-
-        Button btnCiekawostki = findViewById(R.id.btn_Ciekawostki);
-        btnCiekawostki.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navigateToTrivia();
-            }
-        });
-
-        Button btnZdania = findViewById(R.id.btn_Zdania);
-        btnZdania.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navigateToSentence();
-            }
-        });
+    private void setupSpinner() {
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.languages, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 selectedLanguageId = position + 1;
                 String selectedLanguage = (String) parent.getItemAtPosition(position);
-                // Ustawienie tekstu TextView na wybraną kategorię
                 languageTextView.setText(selectedLanguage);
-
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                languageTextView.setText("Wybierz Język");
+                languageTextView.setText(getString(R.string.wybierz_jezyk));
             }
         });
     }
@@ -102,13 +73,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void navigateToVocabularyLearning() {
-        int selectedLanguageId = spinner.getSelectedItemPosition();
         Intent intent = new Intent(this, VocabularyLearningActivity.class);
-        intent.putExtra("LANGUAGE_ID", selectedLanguageId + 1);
+        intent.putExtra("LANGUAGE_ID", selectedLanguageId);
         startActivity(intent);
     }
-
-
 
     private void navigateToDict() {
         Intent intent = new Intent(this, DictActivity.class);

@@ -34,4 +34,18 @@
     <string name="nastepne_slowo">NEXT WORD</string>
     <string name="losowe_slow">RANDOM WORD</string>
     <string name="wpisz_tlumaczenie_slowa">ENTER TRANSLATION OF WORD</string>
+    <string name="select_category">Select a category</string>
+
+    <string-array name="languages">
+        <item>English</item>
+        <item>German</item>
+    </string-array>
+
+    <string-array name="categories">
+        <item>Food</item>
+        <item>Animals</item>
+        <item>Technology</item>
+        <item>School</item>
+    </string-array>
+
 </resources>

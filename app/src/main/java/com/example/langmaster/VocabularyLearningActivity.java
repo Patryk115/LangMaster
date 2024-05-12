@@ -7,14 +7,13 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.langmaster.model.FetchCategoryTask;
 import com.example.langmaster.model.Word;
-import com.example.langmaster.presenter.VocabularyPresenterImpl;
 import com.example.langmaster.presenter.VocabularyPresenter;
+import com.example.langmaster.presenter.VocabularyPresenterImpl;
 import com.example.langmaster.view.VocabularyView;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -25,6 +24,7 @@ public class VocabularyLearningActivity extends AppCompatActivity implements Voc
     private TextInputEditText translationInputEditText;
 
     private TextView isCorrectTextView;
+    private TextView categoryTextView;
 
     private Spinner spinner;
     private int selectedCategoryId = 1;
@@ -38,74 +38,68 @@ public class VocabularyLearningActivity extends AppCompatActivity implements Voc
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vocabulary_learning);
 
+        initializeViews();
+        setupCategorySpinner();
+        configureButtonListeners();
+        loadInitialWord();
+    }
 
-
+    private void initializeViews() {
         wordTextView = findViewById(R.id.word_pl);
         translationInputEditText = findViewById(R.id.textInputEditText7);
         isCorrectTextView = findViewById(R.id.is_correct);
-
-
+        categoryTextView = findViewById(R.id.textView4);
         spinner = findViewById(R.id.spinner2);
-        final TextView categoryTextView = findViewById(R.id.textView4);
+    }
 
-        new FetchCategoryTask(spinner, this).execute();
+    private void setupCategorySpinner() {
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.categories, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
                 selectedCategoryId = position + 1;
                 String selectedCategory = (String) parent.getItemAtPosition(position);
-
                 categoryTextView.setText(selectedCategory);
-
-
-                int languageId = getIntent().getIntExtra("LANGUAGE_ID", 1);
-                presenter.loadWord(languageId, selectedCategoryId);
+                presenter.loadWord(getLanguageId(), selectedCategoryId);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                categoryTextView.setText("Wybierz kategorię");
+                categoryTextView.setText(getString(R.string.select_category));
+            }
+        });
+    }
+
+    private int getLanguageId() {
+        return getIntent().getIntExtra("LANGUAGE_ID", 1);
+    }
+
+    private void configureButtonListeners() {
+        findViewById(R.id.next_word).setOnClickListener(v -> {
+            if (totalAttempts < SESSION_LENGTH) {
+                presenter.loadWord(getLanguageId(), selectedCategoryId);
             }
         });
 
+        findViewById(R.id.accept).setOnClickListener(v -> {
+            if (totalAttempts >= SESSION_LENGTH) {
+                resetSession();
+                presenter.loadWord(getLanguageId(), selectedCategoryId);
+            } else {
+                verifyTranslation();
+            }
+        });
 
-        int languageId = getIntent().getIntExtra("LANGUAGE_ID", 1);
+        findViewById(R.id.btn_Powrot2).setOnClickListener(v -> backToHomeNoAction());
+    }
 
+    private void loadInitialWord() {
         presenter = new VocabularyPresenterImpl(this);
-        presenter.loadWord(languageId, selectedCategoryId);
-
-        Button btnNextWord = findViewById(R.id.next_word);
-        btnNextWord.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (totalAttempts < SESSION_LENGTH) {
-                    presenter.loadWord(languageId, selectedCategoryId);
-                }
-            }
-        });
-        Button btnAccept = findViewById(R.id.accept);
-        btnAccept.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (totalAttempts >= SESSION_LENGTH) {
-                    resetSession();
-                    int languageId = getIntent().getIntExtra("LANGUAGE_ID", 1);
-                    presenter.loadWord(languageId, selectedCategoryId);
-                } else {
-                    verifyTranslation();
-                }
-            }
-        });
-
-        Button btnPowrot = findViewById(R.id.btn_Powrot2);
-        btnPowrot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                backToHomeNoAction();
-            }
-        });
+        presenter.loadWord(getLanguageId(), selectedCategoryId);
     }
 
     @Override
@@ -123,22 +117,19 @@ public class VocabularyLearningActivity extends AppCompatActivity implements Voc
 
     private void verifyTranslation() {
         String userTranslation = translationInputEditText.getText().toString().trim();
-        if (totalAttempts < SESSION_LENGTH) {
-            if (userTranslation.equalsIgnoreCase(currentWord.getTranslatedWord())) {
-                correctAnswers++;
-                isCorrectTextView.setText("Dobrze!!!");
-                isCorrectTextView.setTextColor(Color.GREEN);
-            } else {
-                String correctMsg = "Źle, poprawne tłumaczenie: " + currentWord.getTranslatedWord();
-                isCorrectTextView.setText(correctMsg);
-                isCorrectTextView.setTextColor(Color.RED);
-            }
-            totalAttempts++;
+        if (userTranslation.equalsIgnoreCase(currentWord.getTranslatedWord())) {
+            correctAnswers++;
+            isCorrectTextView.setText("Dobrze!!!");
+            isCorrectTextView.setTextColor(Color.GREEN);
+        } else {
+            String correctMsg = "Źle, poprawne tłumaczenie: " + currentWord.getTranslatedWord();
+            isCorrectTextView.setText(correctMsg);
+            isCorrectTextView.setTextColor(Color.RED);
+        }
+        totalAttempts++;
 
-            if (totalAttempts == SESSION_LENGTH) {
-
-                isCorrectTextView.setText("Wynik sesji: " + correctAnswers + "/" + SESSION_LENGTH + ". Kliknij 'Zatwiedź', aby zacząć nową sesję.");
-            }
+        if (totalAttempts == SESSION_LENGTH) {
+            isCorrectTextView.setText("Wynik sesji: " + correctAnswers + "/" + SESSION_LENGTH + ". Kliknij 'Zatwiedź', aby zacząć nową sesję.");
         }
     }
 
@@ -147,7 +138,6 @@ public class VocabularyLearningActivity extends AppCompatActivity implements Voc
         correctAnswers = 0;
         isCorrectTextView.setText("");
         translationInputEditText.setText("");
-
     }
 
     private void backToHomeNoAction() {
