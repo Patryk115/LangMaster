@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -60,6 +61,32 @@ public class MainActivity extends AppCompatActivity {
                 languageTextView.setText(getString(R.string.wybierz_jezyk));
             }
         });
+    }
+
+    private void updateUI() {
+
+        ArrayAdapter<CharSequence> languageAdapter = ArrayAdapter.createFromResource(this,
+                R.array.languages, android.R.layout.simple_spinner_item);
+        languageAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(languageAdapter);
+
+
+        spinner.setSelection(selectedLanguageId - 1);
+
+
+        ((Button) findViewById(R.id.btn_Zatwierdz)).setText(R.string.tlumacz);
+        ((Button) findViewById(R.id.btn_Ustawienia)).setText(R.string.ustawienia);
+        ((Button) findViewById(R.id.btn_Slowka)).setText(R.string.nauka_slowek);
+        ((Button) findViewById(R.id.btn_Slownik)).setText(R.string.slownik);
+        ((Button) findViewById(R.id.btn_Zdania)).setText(R.string.zdania);
+        ((Button) findViewById(R.id.btn_Ciekawostki)).setText(R.string.ciekawostki);
+        ((TextView) findViewById(R.id.textView5)).setText(R.string.wybierz_jezyk);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateUI();
     }
 
     private void navigateToTranslator() {

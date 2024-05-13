@@ -1,5 +1,6 @@
 package com.example.langmaster;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -86,11 +87,18 @@ public class SettingsActivity extends AppCompatActivity {
         Locale.setDefault(locale);
         Resources resources = getResources();
         Configuration config = resources.getConfiguration();
-        config.locale = locale;
+        config.setLocale(locale);
         resources.updateConfiguration(config, resources.getDisplayMetrics());
 
-        Intent intent = getIntent();
+        // Update application level context
+        Context context = getApplicationContext();
+        resources = context.getResources();
+        config = resources.getConfiguration();
+        config.setLocale(locale);
+        context.createConfigurationContext(config);
+
+        // Restart the activity to reflect the change
         finish();
-        startActivity(intent);
+        startActivity(getIntent());
     }
 }
