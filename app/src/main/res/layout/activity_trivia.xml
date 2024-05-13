@@ -45,7 +45,6 @@
         android:background="@drawable/rounded_square"
         android:fontFamily="@font/inter_bold"
         android:gravity="center"
-        android:hint="CIEKAWOSTKA..."
         android:includeFontPadding="true"
         android:paddingStart="10dp"
         android:textAlignment="center"

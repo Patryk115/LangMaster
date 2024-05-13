@@ -34,10 +34,14 @@ public class TriviaActivity extends AppCompatActivity implements TriviaView {
             }
         });
 
+
+
         imageView = findViewById(R.id.triviaImage);
         textView = findViewById(R.id.triviaText);
 
-        presenter = new TriviaPresenter(this);
+        int languageId = getIntent().getIntExtra("LANGUAGE_ID", 1);
+
+        presenter = new TriviaPresenter(this, languageId);
         presenter.loadTrivia();
 
         findViewById(R.id.button13).setOnClickListener(v -> presenter.nextTrivia());

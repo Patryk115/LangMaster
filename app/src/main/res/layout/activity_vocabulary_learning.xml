@@ -184,7 +184,6 @@
         android:background="@drawable/rounded_square"
         android:fontFamily="@font/freeman"
         android:gravity="center"
-        android:text="TextView"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

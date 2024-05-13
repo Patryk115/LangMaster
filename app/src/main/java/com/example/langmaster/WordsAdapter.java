@@ -1,4 +1,3 @@
-// WordsAdapter.java
 package com.example.langmaster;
 
 import android.view.LayoutInflater;

@@ -1,6 +1,7 @@
 package com.example.langmaster;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -8,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import android.preference.PreferenceManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,12 +26,14 @@ public class MainActivity extends AppCompatActivity {
         languageTextView = findViewById(R.id.textView5);
         setupButtonListeners();
         setupSpinner();
+
+        restoreLanguageSelection();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        setupSpinner();
+        restoreLanguageSelection();
     }
 
     private void setupButtonListeners() {
@@ -53,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 selectedLanguageId = position + 1;
                 String selectedLanguage = (String) parent.getItemAtPosition(position);
                 languageTextView.setText(selectedLanguage);
+                saveLanguageSelection(selectedLanguageId);
             }
 
             @Override
@@ -94,5 +99,18 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SentencesActivity.class);
         intent.putExtra("LANGUAGE_ID", selectedLanguageId);
         startActivity(intent);
+    }
+
+    private void restoreLanguageSelection() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        selectedLanguageId = prefs.getInt("SelectedLanguageId", 1);
+        spinner.setSelection(selectedLanguageId - 1);
+    }
+
+    private void saveLanguageSelection(int languageId) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("SelectedLanguageId", languageId);
+        editor.apply();
     }
 }

@@ -5,17 +5,35 @@ import android.os.AsyncTask;
 import com.example.langmaster.model.Trivia;
 import com.example.langmaster.model.TriviaModel;
 import com.example.langmaster.view.TriviaView;
+
 public class TriviaPresenter {
 
     private TriviaView view;
-    private int currentTriviaId = 1; // Zakładamy, że ciekawostki zaczynają się od ID 1
+    private int currentTriviaId;
+    private int languageId;
 
-    public TriviaPresenter(TriviaView view) {
+    public TriviaPresenter(TriviaView view, int languageId) {
         this.view = view;
+        this.languageId = languageId;
+        setStartingTriviaId(languageId);
+    }
+
+    private void setStartingTriviaId(int langId) {
+        switch (langId) {
+            case 1:
+                currentTriviaId = 1;
+                break;
+            case 2:
+                currentTriviaId = 4;
+                break;
+            default:
+                currentTriviaId = 1;
+                break;
+        }
     }
 
     public void loadTrivia() {
-        new FetchImageTask().execute(currentTriviaId);
+        new FetchImageTask().execute(currentTriviaId, languageId);
     }
 
     public void nextTrivia() {
@@ -33,7 +51,9 @@ public class TriviaPresenter {
     private class FetchImageTask extends AsyncTask<Integer, Void, Trivia> {
         @Override
         protected Trivia doInBackground(Integer... params) {
-            return TriviaModel.getTrivia(params[0]);
+            int triviaId = params[0];
+            int langId = params[1];
+            return TriviaModel.getTrivia(triviaId, langId);
         }
 
         @Override
@@ -41,7 +61,6 @@ public class TriviaPresenter {
             if (trivia != null) {
                 view.displayTrivia(trivia.getImage(), trivia.getDescription());
             } else {
-                view.displayError("Nie znaleziono ciekawostki");
             }
         }
     }

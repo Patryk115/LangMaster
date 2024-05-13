@@ -11,14 +11,14 @@ import java.sql.SQLException;
 
 public class TriviaModel {
 
-    public static Trivia getTrivia(int triviaId) {
+    public static Trivia getTrivia(int triviaId, int languageId) {
         Trivia trivia = null;
-        String sql = "SELECT image, description FROM mobilne.trivia WHERE id_trivia = ?";
+        String sql = "SELECT image, description FROM mobilne.trivia WHERE id_trivia = ? AND id_language = ?";
 
         try (Connection conn = DatabaseConnector.connect();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
-
             stmt.setInt(1, triviaId);
+            stmt.setInt(2, languageId);
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
