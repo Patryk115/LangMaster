@@ -30,7 +30,9 @@ public class VocabularyLearningActivity extends AppCompatActivity implements Voc
 
     private int totalAttempts = 0;
     private int correctAnswers = 0;
-    private static final int SESSION_LENGTH = 5;
+    private static final int SESSION_LENGTH = 10;
+    private boolean initialLoad = true;
+    private boolean isWordVerified = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +42,6 @@ public class VocabularyLearningActivity extends AppCompatActivity implements Voc
         initializeViews();
         setupCategorySpinner();
         configureButtonListeners();
-        loadInitialWord();
     }
 
     private void initializeViews() {
@@ -60,10 +61,19 @@ public class VocabularyLearningActivity extends AppCompatActivity implements Voc
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedCategoryId = position + 1;
-                String selectedCategory = (String) parent.getItemAtPosition(position);
-                categoryTextView.setText(selectedCategory);
-                presenter.loadWord(getLanguageId(), selectedCategoryId);
+                if (!initialLoad) {
+                    selectedCategoryId = position + 1;
+                    String selectedCategory = (String) parent.getItemAtPosition(position);
+                    categoryTextView.setText(selectedCategory);
+                    if (isWordVerified) {
+                        presenter.loadWord(getLanguageId(), selectedCategoryId);
+                    } else {
+                        Toast.makeText(VocabularyLearningActivity.this, "Przetłumacz aktualne słowo.", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    initialLoad = false;
+                    loadInitialWord();
+                }
             }
 
             @Override
@@ -79,17 +89,23 @@ public class VocabularyLearningActivity extends AppCompatActivity implements Voc
 
     private void configureButtonListeners() {
         findViewById(R.id.next_word).setOnClickListener(v -> {
-            if (totalAttempts < SESSION_LENGTH) {
+            if (totalAttempts < SESSION_LENGTH && isWordVerified) {
                 presenter.loadWord(getLanguageId(), selectedCategoryId);
+            } else {
+                Toast.makeText(this, "Przetłumacz aktualne słowo.", Toast.LENGTH_SHORT).show();
             }
         });
 
         findViewById(R.id.accept).setOnClickListener(v -> {
-            if (totalAttempts >= SESSION_LENGTH) {
-                resetSession();
-                presenter.loadWord(getLanguageId(), selectedCategoryId);
+            if (!translationInputEditText.getText().toString().trim().isEmpty()) {
+                if (totalAttempts >= SESSION_LENGTH) {
+                    resetSession();
+                    presenter.loadWord(getLanguageId(), selectedCategoryId);
+                } else {
+                    verifyTranslation();
+                }
             } else {
-                verifyTranslation();
+                Toast.makeText(this, "Podaj tłumaczenie.", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -107,6 +123,7 @@ public class VocabularyLearningActivity extends AppCompatActivity implements Voc
         wordTextView.setText(word.getPolishWord());
         translationInputEditText.setText("");
         isCorrectTextView.setText("");
+        isWordVerified = false;
     }
 
     @Override
@@ -121,14 +138,15 @@ public class VocabularyLearningActivity extends AppCompatActivity implements Voc
             isCorrectTextView.setText("Poprawne tłumaczenie!");
             isCorrectTextView.setTextColor(getResources().getColor(R.color.text_correct));
         } else {
-            String correctMsg = "Źle, poprawne tłumaczenie: " + currentWord.getTranslatedWord();
+            String correctMsg = "Źle, poprawne tłumaczenie:" + currentWord.getTranslatedWord();
             isCorrectTextView.setText(correctMsg);
             isCorrectTextView.setTextColor(getResources().getColor(R.color.text_incorrect));
         }
         totalAttempts++;
+        isWordVerified = true;
 
         if (totalAttempts == SESSION_LENGTH) {
-            isCorrectTextView.setText("Wynik sesji: " + correctAnswers + "/" + SESSION_LENGTH + ". Kliknij 'Zatwiedź', aby zacząć nową sesję.");
+            isCorrectTextView.setText("Wynik: " + correctAnswers + "/" + SESSION_LENGTH + ". Kliknij 'Zatwierdź' aby zacząć nową sesję.");
         }
     }
 
@@ -137,11 +155,14 @@ public class VocabularyLearningActivity extends AppCompatActivity implements Voc
         correctAnswers = 0;
         isCorrectTextView.setText("");
         translationInputEditText.setText("");
+        isWordVerified = true;
     }
 
     private void backToHomeNoAction() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("LANGUAGE_ID", getIntent().getIntExtra("LANGUAGE_ID", 1));
+        setResult(RESULT_OK, resultIntent);
         finish();
     }
+
 }

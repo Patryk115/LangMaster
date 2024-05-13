@@ -49,8 +49,10 @@ public class TriviaActivity extends AppCompatActivity implements TriviaView {
     }
 
     private void backToHomeNoAction() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("LANGUAGE_ID", getIntent().getIntExtra("LANGUAGE_ID", 1));
+        setResult(RESULT_OK, resultIntent);
+        finish();
     }
 
     @Override

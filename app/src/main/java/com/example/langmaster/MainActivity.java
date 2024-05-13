@@ -27,13 +27,8 @@ public class MainActivity extends AppCompatActivity {
         setupButtonListeners();
         setupSpinner();
 
-        restoreLanguageSelection();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        restoreLanguageSelection();
+        spinner.setSelection(0);
+        saveLanguageSelection(1);
     }
 
     private void setupButtonListeners() {
@@ -47,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupSpinner() {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.languages, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                R.array.languages, R.layout.spinner_item);
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -69,30 +64,32 @@ public class MainActivity extends AppCompatActivity {
 
     private void navigateToTranslator() {
         Intent intent = new Intent(this, TranslatorActivity.class);
+        intent.putExtra("LANGUAGE_ID", selectedLanguageId);
         startActivity(intent);
     }
 
     private void navigateToSettings() {
         Intent intent = new Intent(this, SettingsActivity.class);
+        intent.putExtra("LANGUAGE_ID", selectedLanguageId);
         startActivity(intent);
     }
 
     private void navigateToVocabularyLearning() {
         Intent intent = new Intent(this, VocabularyLearningActivity.class);
         intent.putExtra("LANGUAGE_ID", selectedLanguageId);
-        startActivity(intent);
+        startActivityForResult(intent, 1);
     }
 
     private void navigateToDict() {
         Intent intent = new Intent(this, DictActivity.class);
         intent.putExtra("LANGUAGE_ID", selectedLanguageId);
-        startActivity(intent);
+        startActivityForResult(intent, 1);
     }
 
     private void navigateToTrivia() {
         Intent intent = new Intent(this, TriviaActivity.class);
         intent.putExtra("LANGUAGE_ID", selectedLanguageId);
-        startActivity(intent);
+        startActivityForResult(intent, 1);
     }
 
     private void navigateToSentence() {
@@ -101,16 +98,21 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void restoreLanguageSelection() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        selectedLanguageId = prefs.getInt("SelectedLanguageId", 1);
-        spinner.setSelection(selectedLanguageId - 1);
-    }
-
     private void saveLanguageSelection(int languageId) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putInt("SelectedLanguageId", languageId);
         editor.apply();
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            selectedLanguageId = data.getIntExtra("LANGUAGE_ID", 1);
+            spinner.setSelection(selectedLanguageId - 1);
+        }
+    }
+
+
 }

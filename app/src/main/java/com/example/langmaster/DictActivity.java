@@ -73,8 +73,9 @@ public class DictActivity extends AppCompatActivity implements DictView {
     }
 
     private void backToHomeNoAction() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        Intent intent = new Intent();
+        intent.putExtra("LANGUAGE_ID", getIntent().getIntExtra("LANGUAGE_ID", 1));
+        setResult(RESULT_OK, intent);
         finish();
     }
 }

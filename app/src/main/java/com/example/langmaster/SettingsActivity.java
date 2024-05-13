@@ -63,10 +63,11 @@ public class SettingsActivity extends AppCompatActivity {
         imieView.setText(imie);
         emailView.setText(email);
     }
-
     private void navigateToHome() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("LANGUAGE_ID", getIntent().getIntExtra("LANGUAGE_ID", 1));
+        setResult(RESULT_OK, resultIntent);
+        finish();
     }
 
     private void logoutUser() {
