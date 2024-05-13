@@ -66,8 +66,8 @@ public class MainActivity extends AppCompatActivity {
     private void updateUI() {
 
         ArrayAdapter<CharSequence> languageAdapter = ArrayAdapter.createFromResource(this,
-                R.array.languages, android.R.layout.simple_spinner_item);
-        languageAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                R.array.languages, R.layout.spinner_item);
+        languageAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         spinner.setAdapter(languageAdapter);
 
 

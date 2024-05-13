@@ -2,6 +2,8 @@ package com.example.langmaster;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,12 +32,16 @@ public class LoginActivity extends AppCompatActivity implements LoginPresenter.L
 
         Button loginButton = findViewById(R.id.btn_Ustawienia);
         loginButton.setOnClickListener(v -> {
-            String username = usernameEditText.getText().toString();
-            String password = passwordEditText.getText().toString();
-            if (!username.isEmpty() && !password.isEmpty()) {
-                presenter.validateCredentials(username, password);
+            if (isNetworkAvailable()) {
+                String username = usernameEditText.getText().toString();
+                String password = passwordEditText.getText().toString();
+                if (!username.isEmpty() && !password.isEmpty()) {
+                    presenter.validateCredentials(username, password);
+                } else {
+                    Toast.makeText(LoginActivity.this, "Nie podałeś hasła lub loginu", Toast.LENGTH_SHORT).show();
+                }
             } else {
-                Toast.makeText(LoginActivity.this, "Nie podałeś hasła lub loginu", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "No internet access", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -43,6 +49,12 @@ public class LoginActivity extends AppCompatActivity implements LoginPresenter.L
             Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
             startActivity(intent);
         });
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
     @Override

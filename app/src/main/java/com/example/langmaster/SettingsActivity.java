@@ -90,14 +90,12 @@ public class SettingsActivity extends AppCompatActivity {
         config.setLocale(locale);
         resources.updateConfiguration(config, resources.getDisplayMetrics());
 
-        // Update application level context
         Context context = getApplicationContext();
         resources = context.getResources();
         config = resources.getConfiguration();
         config.setLocale(locale);
         context.createConfigurationContext(config);
 
-        // Restart the activity to reflect the change
         finish();
         startActivity(getIntent());
     }
