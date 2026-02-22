@@ -23,13 +23,13 @@ LangMaster is a full-featured educational mobile app. It provides a secure, pers
 
 
 
-| Main Menu | Vocabulary Quiz | Vocabulary |
+| Main Menu | Vocabulary Quiz | Vocabulary List |
 |:---:|:---:|:---:|
-| <img width="373" height="604" alt="image" src="https://github.com/user-attachments/assets/bc226502-6d9d-4333-adfc-fa4f70db0ba7" /> | <img width="381" height="610" alt="image" src="https://github.com/user-attachments/assets/4aa9578d-f8d1-4ef6-951d-c72845050cf3" /> | <img width="430" height="692" alt="image" src="https://github.com/user-attachments/assets/d0916b25-bbab-4f75-a193-6d7695b4074f" />|
+| <img src="https://github.com/user-attachments/assets/bc226502-6d9d-4333-adfc-fa4f70db0ba7" width="280" alt="Main Menu" /> | <img src="https://github.com/user-attachments/assets/4aa9578d-f8d1-4ef6-951d-c72845050cf3" width="280" alt="Vocabulary Quiz" /> | <img src="https://github.com/user-attachments/assets/d0916b25-bbab-4f75-a193-6d7695b4074f" width="280" alt="Vocabulary List" /> |
 
 | Sentence Completion | Integrated Translator | Cultural Trivia |
 |:---:|:---:|:---:|
-| <img width="441" height="711" alt="image" src="https://github.com/user-attachments/assets/0e687b78-a8a3-45d0-95e8-dee6af8d94b2" /> | <img width="412" height="662" alt="image" src="https://github.com/user-attachments/assets/81d4a685-0b36-4f3c-823b-fe2f8d58dc14" /> | <img width="444" height="719" alt="image" src="https://github.com/user-attachments/assets/4787fd6b-dea3-4274-b7b9-d69dc5529e12" />|
+| <img src="https://github.com/user-attachments/assets/0e687b78-a8a3-45d0-95e8-dee6af8d94b2" width="280" alt="Sentence Completion" /> | <img src="https://github.com/user-attachments/assets/81d4a685-0b36-4f3c-823b-fe2f8d58dc14" width="280" alt="Integrated Translator" /> | <img src="https://github.com/user-attachments/assets/4787fd6b-dea3-4274-b7b9-d69dc5529e12" width="280" alt="Cultural Trivia" /> |
 
 ## Note on Running Locally
 This project was initially connected to a private database to fetch dynamic content (words, sentences, users). 
