@@ -8,9 +8,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DatabaseConnector {
-    private static final String URL = "jdbc:postgresql://195.150.230.208:5432/2023_kindra_patryk";
-    private static final String USER = "2023_kindra_patryk";
-    private static final String PASSWORD = "36375";
+    private static final String URL = "jdbc:postgresql://YOUR_DATABASE_HOST:5432/YOUR_DATABASE_NAME";
+    private static final String USER = "YOUR_USERNAME";
+    private static final String PASSWORD = "YOUR_PASSWORD";
 
     private static final String TAG = "DatabaseConnector";
 
@@ -27,6 +27,7 @@ public class DatabaseConnector {
             throw new SQLException("PostgreSQL JDBC Driver not found.", e);
         }
     }
+
     public static boolean checkUserExists(String username) {
         try (Connection conn = connect();
              PreparedStatement stmt = conn.prepareStatement("SELECT COUNT(*) FROM mobilne.user WHERE login = ?")) {
